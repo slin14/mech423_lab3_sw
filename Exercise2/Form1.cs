@@ -364,16 +364,18 @@ namespace Exercise2
                         }
                         else if (Convert.ToInt32(textBoxEx2DCPWM.Text) > 0)
                         {
-                            command[1] = 2;
+                            command[1] = 2; // CW
                         }
                         else
                         {
-                            command[1] = 3;
+                            command[1] = 3; // CCW
                         }
-                        velocity = Math.Abs(Convert.ToInt32(textBoxEx2DCPWM.Text);
-                        command[3] = (byte)Math.Abs(Convert.ToInt32(textBoxEx2DCPWM.Text));
+                        int velocity = Math.Abs(Convert.ToInt32(textBoxEx2DCPWM.Text)) / 100 * 0xFFFF;
+                        command[2] = (byte)((velocity >> 8) & 0xFF);
+                        command[3] = (byte)((velocity & 0xFF));
                     }
-                    serialPort.Write(command, 0, 6);
+                    serialPort.Write(command, 0, 4);
+                    //serialPort.Write(command, 0, 6);
                     break;
                 case "Ex. 3: Stepper Motor Control":
                     // Set the bytes that don't change
