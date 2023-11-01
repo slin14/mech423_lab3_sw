@@ -343,6 +343,7 @@ namespace Exercise2
                 case "Ex. 2: DC Motor Control":
                     // Set the bytes that don't change
                     command[0] = 255;
+                    serialPort.Write(command, 0, 1);
                     command[2] = 0; // default data high byte
                     command[3] = 0; // default data low byte
                     command[4] = 0;
@@ -370,20 +371,26 @@ namespace Exercise2
                         {
                             command[1] = 3; // CCW
                         }
+                        serialPort.Write(command, 1, 1);
                         //int velocity = Math.Abs(Convert.ToInt32(textBoxEx2DCPWM.Text)) / 100 * 0xFFFF;
-                        int velocity = (int)(Math.Abs(Convert.ToInt32(textBoxEx2DCPWM.Text)) /100.0 * 255);
+                        int velocity = (int)(Math.Abs(Convert.ToInt32(textBoxEx2DCPWM.Text)) /100.0 * 254);
                         command[2] = (byte)(velocity);
+                        serialPort.Write(command, 2, 1);
                         //command[2] = (byte)((velocity >> 8) & 0xFF);
                         command[3] = 0; // hack, because command[2] == 0 -> ~0%
+                        serialPort.Write(command, 3, 1);
                         //command[3] = (byte)((velocity & 0xFF));
                         //textBoxDebug.Text = command[2].ToString(); // does not display byte
                         textBoxDebug.Text = velocity.ToString();
+                        //Console.WriteLine(System.Text.Encoding.UTF8.GetString(command, 0, 5));
                     }
-                    serialPort.Write(command, 0, 5);
+                    command[4] = 0;
+                    serialPort.Write(command, 4, 1);
+                    //serialPort.Write(command, 0, 5);
                     //serialPort.Write(command, 0, 6);
-                    
+
                     break;
-                case "Ex. 3: Stepper Motor Control":
+/*                case "Ex. 3: Stepper Motor Control":
                     // Set the bytes that don't change
                     command[0] = 255;
                     command[4] = 0; // reset escape byte
@@ -527,6 +534,7 @@ namespace Exercise2
 
 
                     break;
+*/
                 default:
                     throw new DirectoryNotFoundException("GOOF - wrong tab");
             }
