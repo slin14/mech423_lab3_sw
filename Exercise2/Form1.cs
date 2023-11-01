@@ -370,12 +370,18 @@ namespace Exercise2
                         {
                             command[1] = 3; // CCW
                         }
-                        int velocity = Math.Abs(Convert.ToInt32(textBoxEx2DCPWM.Text)) / 100 * 0xFFFF;
-                        command[2] = (byte)((velocity >> 8) & 0xFF);
-                        command[3] = (byte)((velocity & 0xFF));
+                        //int velocity = Math.Abs(Convert.ToInt32(textBoxEx2DCPWM.Text)) / 100 * 0xFFFF;
+                        int velocity = (int)(Math.Abs(Convert.ToInt32(textBoxEx2DCPWM.Text)) /100.0 * 255);
+                        command[2] = (byte)(velocity);
+                        //command[2] = (byte)((velocity >> 8) & 0xFF);
+                        command[3] = 0; // hack, because command[2] == 0 -> ~0%
+                        //command[3] = (byte)((velocity & 0xFF));
+                        //textBoxDebug.Text = command[2].ToString(); // does not display byte
+                        textBoxDebug.Text = velocity.ToString();
                     }
-                    serialPort.Write(command, 0, 4);
+                    serialPort.Write(command, 0, 5);
                     //serialPort.Write(command, 0, 6);
+                    
                     break;
                 case "Ex. 3: Stepper Motor Control":
                     // Set the bytes that don't change
@@ -524,6 +530,11 @@ namespace Exercise2
                 default:
                     throw new DirectoryNotFoundException("GOOF - wrong tab");
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
