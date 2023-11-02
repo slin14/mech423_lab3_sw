@@ -71,6 +71,9 @@ namespace Exercise2
             this.textBoxEncoderRPM = new System.Windows.Forms.TextBox();
             this.textBoxEncoderHz = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtDebugOutput3 = new System.Windows.Forms.TextBox();
+            this.txtDebugOutput2 = new System.Windows.Forms.TextBox();
+            this.txtDebugOutput1 = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.buttonEx5Move = new System.Windows.Forms.Button();
             this.textBoxEx5XPosition = new System.Windows.Forms.TextBox();
@@ -101,9 +104,7 @@ namespace Exercise2
             this.timerSerialPort = new System.Windows.Forms.Timer(this.components);
             this.textBoxSerialDataStream = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtDebugOutput1 = new System.Windows.Forms.TextBox();
-            this.txtDebugOutput2 = new System.Windows.Forms.TextBox();
-            this.txtDebugOutput3 = new System.Windows.Forms.TextBox();
+            this.textBoxDebug = new System.Windows.Forms.TextBox();
             this.tabControl.SuspendLayout();
             this.DCMotor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarEx2DCPWM)).BeginInit();
@@ -133,6 +134,7 @@ namespace Exercise2
             // 
             // DCMotor
             // 
+            this.DCMotor.Controls.Add(this.textBoxDebug);
             this.DCMotor.Controls.Add(this.label14);
             this.DCMotor.Controls.Add(this.label13);
             this.DCMotor.Controls.Add(this.buttonEx2DCEStop);
@@ -143,7 +145,7 @@ namespace Exercise2
             this.DCMotor.Location = new System.Drawing.Point(4, 25);
             this.DCMotor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DCMotor.Name = "DCMotor";
-            this.DCMotor.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DCMotor.Padding = new System.Windows.Forms.Padding(4);
             this.DCMotor.Size = new System.Drawing.Size(973, 495);
             this.DCMotor.TabIndex = 0;
             this.DCMotor.Text = "Ex. 2: DC Motor Control";
@@ -155,7 +157,7 @@ namespace Exercise2
             this.label14.Location = new System.Drawing.Point(41, 112);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(98, 17);
+            this.label14.Size = new System.Drawing.Size(89, 16);
             this.label14.TabIndex = 6;
             this.label14.Text = "Gantry to Idler";
             // 
@@ -165,7 +167,7 @@ namespace Exercise2
             this.label13.Location = new System.Drawing.Point(757, 132);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(107, 17);
+            this.label13.Size = new System.Drawing.Size(97, 16);
             this.label13.TabIndex = 5;
             this.label13.Text = "Gantry to Motor";
             // 
@@ -188,7 +190,7 @@ namespace Exercise2
             this.label2.Location = new System.Drawing.Point(581, 90);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(20, 17);
+            this.label2.Size = new System.Drawing.Size(19, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "%";
             // 
@@ -198,7 +200,7 @@ namespace Exercise2
             this.label1.Location = new System.Drawing.Point(451, 66);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 17);
+            this.label1.Size = new System.Drawing.Size(113, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "PWM Percentage";
             // 
@@ -236,9 +238,9 @@ namespace Exercise2
             this.tabPage3.Controls.Add(this.label3);
             this.tabPage3.Controls.Add(this.trackBarStepperVelocityControl);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage3.Size = new System.Drawing.Size(973, 495);
             this.tabPage3.TabIndex = 1;
             this.tabPage3.Text = "Ex. 3: Stepper Motor Control";
@@ -249,7 +251,7 @@ namespace Exercise2
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(5, 54);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(98, 17);
+            this.label16.Size = new System.Drawing.Size(89, 16);
             this.label16.TabIndex = 9;
             this.label16.Text = "Gantry to Idler";
             // 
@@ -258,14 +260,14 @@ namespace Exercise2
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(679, 54);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(107, 17);
+            this.label15.Size = new System.Drawing.Size(97, 16);
             this.label15.TabIndex = 8;
             this.label15.Text = "Gantry to Motor";
             // 
             // buttonStepperRightStep
             // 
             this.buttonStepperRightStep.Location = new System.Drawing.Point(559, 70);
-            this.buttonStepperRightStep.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonStepperRightStep.Margin = new System.Windows.Forms.Padding(4);
             this.buttonStepperRightStep.Name = "buttonStepperRightStep";
             this.buttonStepperRightStep.Size = new System.Drawing.Size(100, 28);
             this.buttonStepperRightStep.TabIndex = 7;
@@ -276,7 +278,7 @@ namespace Exercise2
             // buttonStepperLeftStep
             // 
             this.buttonStepperLeftStep.Location = new System.Drawing.Point(360, 70);
-            this.buttonStepperLeftStep.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonStepperLeftStep.Margin = new System.Windows.Forms.Padding(4);
             this.buttonStepperLeftStep.Name = "buttonStepperLeftStep";
             this.buttonStepperLeftStep.Size = new System.Drawing.Size(100, 28);
             this.buttonStepperLeftStep.TabIndex = 6;
@@ -289,7 +291,7 @@ namespace Exercise2
             this.buttonStepperStop.BackColor = System.Drawing.Color.Red;
             this.buttonStepperStop.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonStepperStop.Location = new System.Drawing.Point(468, 70);
-            this.buttonStepperStop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonStepperStop.Margin = new System.Windows.Forms.Padding(4);
             this.buttonStepperStop.Name = "buttonStepperStop";
             this.buttonStepperStop.Size = new System.Drawing.Size(83, 28);
             this.buttonStepperStop.TabIndex = 5;
@@ -300,7 +302,7 @@ namespace Exercise2
             // textBoxStepperStepsPerSecond
             // 
             this.textBoxStepperStepsPerSecond.Location = new System.Drawing.Point(453, 133);
-            this.textBoxStepperStepsPerSecond.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxStepperStepsPerSecond.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxStepperStepsPerSecond.Name = "textBoxStepperStepsPerSecond";
             this.textBoxStepperStepsPerSecond.Size = new System.Drawing.Size(117, 22);
             this.textBoxStepperStepsPerSecond.TabIndex = 4;
@@ -312,7 +314,7 @@ namespace Exercise2
             this.label3.Location = new System.Drawing.Point(449, 113);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 17);
+            this.label3.Size = new System.Drawing.Size(115, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "Steps per Second";
             // 
@@ -320,7 +322,7 @@ namespace Exercise2
             // 
             this.trackBarStepperVelocityControl.LargeChange = 100;
             this.trackBarStepperVelocityControl.Location = new System.Drawing.Point(4, 7);
-            this.trackBarStepperVelocityControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trackBarStepperVelocityControl.Margin = new System.Windows.Forms.Padding(4);
             this.trackBarStepperVelocityControl.Maximum = 1000;
             this.trackBarStepperVelocityControl.Minimum = -1000;
             this.trackBarStepperVelocityControl.Name = "trackBarStepperVelocityControl";
@@ -352,9 +354,9 @@ namespace Exercise2
             this.tabPage4.Controls.Add(this.textBoxEncoderRPM);
             this.tabPage4.Controls.Add(this.textBoxEncoderHz);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage4.Size = new System.Drawing.Size(973, 495);
             this.tabPage4.TabIndex = 2;
             this.tabPage4.Text = "Ex. 4: Encoder Reader";
@@ -367,7 +369,7 @@ namespace Exercise2
             legend1.Name = "Legend1";
             this.chartEx4.Legends.Add(legend1);
             this.chartEx4.Location = new System.Drawing.Point(12, 241);
-            this.chartEx4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chartEx4.Margin = new System.Windows.Forms.Padding(4);
             this.chartEx4.Name = "chartEx4";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
@@ -388,7 +390,7 @@ namespace Exercise2
             // buttonEx4ResetPosition
             // 
             this.buttonEx4ResetPosition.Location = new System.Drawing.Point(527, 73);
-            this.buttonEx4ResetPosition.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonEx4ResetPosition.Margin = new System.Windows.Forms.Padding(4);
             this.buttonEx4ResetPosition.Name = "buttonEx4ResetPosition";
             this.buttonEx4ResetPosition.Size = new System.Drawing.Size(151, 28);
             this.buttonEx4ResetPosition.TabIndex = 15;
@@ -415,7 +417,7 @@ namespace Exercise2
             this.label10.Location = new System.Drawing.Point(108, 186);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(20, 17);
+            this.label10.Size = new System.Drawing.Size(19, 16);
             this.label10.TabIndex = 13;
             this.label10.Text = "%";
             // 
@@ -425,7 +427,7 @@ namespace Exercise2
             this.label11.Location = new System.Drawing.Point(8, 164);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(118, 17);
+            this.label11.Size = new System.Drawing.Size(113, 16);
             this.label11.TabIndex = 12;
             this.label11.Text = "PWM Percentage";
             // 
@@ -458,7 +460,7 @@ namespace Exercise2
             this.label9.Location = new System.Drawing.Point(371, 79);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(149, 17);
+            this.label9.Size = new System.Drawing.Size(141, 16);
             this.label9.TabIndex = 9;
             this.label9.Text = "Relative Position (mm)";
             // 
@@ -468,14 +470,14 @@ namespace Exercise2
             this.label8.Location = new System.Drawing.Point(371, 47);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(104, 17);
+            this.label8.Size = new System.Drawing.Size(99, 16);
             this.label8.TabIndex = 8;
             this.label8.Text = "Velocity (mm/s)";
             // 
             // textBoxLinearVelocity
             // 
             this.textBoxLinearVelocity.Location = new System.Drawing.Point(216, 43);
-            this.textBoxLinearVelocity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxLinearVelocity.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxLinearVelocity.Name = "textBoxLinearVelocity";
             this.textBoxLinearVelocity.ReadOnly = true;
             this.textBoxLinearVelocity.Size = new System.Drawing.Size(145, 22);
@@ -487,14 +489,14 @@ namespace Exercise2
             this.label7.Location = new System.Drawing.Point(212, 23);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 17);
+            this.label7.Size = new System.Drawing.Size(87, 16);
             this.label7.TabIndex = 6;
             this.label7.Text = "Linear Motion";
             // 
             // textBoxLinearPosition
             // 
             this.textBoxLinearPosition.Location = new System.Drawing.Point(216, 75);
-            this.textBoxLinearPosition.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxLinearPosition.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxLinearPosition.Name = "textBoxLinearPosition";
             this.textBoxLinearPosition.ReadOnly = true;
             this.textBoxLinearPosition.Size = new System.Drawing.Size(145, 22);
@@ -506,7 +508,7 @@ namespace Exercise2
             this.label6.Location = new System.Drawing.Point(167, 79);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 17);
+            this.label6.Size = new System.Drawing.Size(37, 16);
             this.label6.TabIndex = 4;
             this.label6.Text = "RPM";
             // 
@@ -516,7 +518,7 @@ namespace Exercise2
             this.label5.Location = new System.Drawing.Point(167, 47);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(25, 17);
+            this.label5.Size = new System.Drawing.Size(23, 16);
             this.label5.TabIndex = 3;
             this.label5.Text = "Hz";
             // 
@@ -526,14 +528,14 @@ namespace Exercise2
             this.label4.Location = new System.Drawing.Point(8, 23);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 17);
+            this.label4.Size = new System.Drawing.Size(111, 16);
             this.label4.TabIndex = 2;
             this.label4.Text = "Rotational Motion";
             // 
             // textBoxEncoderRPM
             // 
             this.textBoxEncoderRPM.Location = new System.Drawing.Point(12, 75);
-            this.textBoxEncoderRPM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEncoderRPM.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEncoderRPM.Name = "textBoxEncoderRPM";
             this.textBoxEncoderRPM.ReadOnly = true;
             this.textBoxEncoderRPM.Size = new System.Drawing.Size(145, 22);
@@ -542,7 +544,7 @@ namespace Exercise2
             // textBoxEncoderHz
             // 
             this.textBoxEncoderHz.Location = new System.Drawing.Point(12, 43);
-            this.textBoxEncoderHz.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEncoderHz.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEncoderHz.Name = "textBoxEncoderHz";
             this.textBoxEncoderHz.ReadOnly = true;
             this.textBoxEncoderHz.Size = new System.Drawing.Size(145, 22);
@@ -576,20 +578,41 @@ namespace Exercise2
             this.tabPage1.Text = "Ex. 5: Close Loop";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // txtDebugOutput3
+            // 
+            this.txtDebugOutput3.Location = new System.Drawing.Point(709, 294);
+            this.txtDebugOutput3.Name = "txtDebugOutput3";
+            this.txtDebugOutput3.Size = new System.Drawing.Size(100, 22);
+            this.txtDebugOutput3.TabIndex = 30;
+            // 
+            // txtDebugOutput2
+            // 
+            this.txtDebugOutput2.Location = new System.Drawing.Point(709, 265);
+            this.txtDebugOutput2.Name = "txtDebugOutput2";
+            this.txtDebugOutput2.Size = new System.Drawing.Size(100, 22);
+            this.txtDebugOutput2.TabIndex = 29;
+            // 
+            // txtDebugOutput1
+            // 
+            this.txtDebugOutput1.Location = new System.Drawing.Point(709, 236);
+            this.txtDebugOutput1.Name = "txtDebugOutput1";
+            this.txtDebugOutput1.Size = new System.Drawing.Size(100, 22);
+            this.txtDebugOutput1.TabIndex = 28;
+            // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(117, 266);
             this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(30, 17);
+            this.label24.Size = new System.Drawing.Size(29, 16);
             this.label24.TabIndex = 27;
             this.label24.Text = "mm";
             // 
             // buttonEx5Move
             // 
             this.buttonEx5Move.Location = new System.Drawing.Point(171, 260);
-            this.buttonEx5Move.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonEx5Move.Margin = new System.Windows.Forms.Padding(4);
             this.buttonEx5Move.Name = "buttonEx5Move";
             this.buttonEx5Move.Size = new System.Drawing.Size(100, 28);
             this.buttonEx5Move.TabIndex = 26;
@@ -600,7 +623,7 @@ namespace Exercise2
             // textBoxEx5XPosition
             // 
             this.textBoxEx5XPosition.Location = new System.Drawing.Point(11, 262);
-            this.textBoxEx5XPosition.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEx5XPosition.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEx5XPosition.Name = "textBoxEx5XPosition";
             this.textBoxEx5XPosition.Size = new System.Drawing.Size(97, 22);
             this.textBoxEx5XPosition.TabIndex = 25;
@@ -611,7 +634,7 @@ namespace Exercise2
             this.label25.Location = new System.Drawing.Point(7, 242);
             this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(136, 17);
+            this.label25.Size = new System.Drawing.Size(127, 16);
             this.label25.TabIndex = 23;
             this.label25.Text = "X Position (Relative)";
             // 
@@ -620,7 +643,7 @@ namespace Exercise2
             this.buttonEx5EStop.BackColor = System.Drawing.Color.Red;
             this.buttonEx5EStop.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonEx5EStop.Location = new System.Drawing.Point(11, 160);
-            this.buttonEx5EStop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonEx5EStop.Margin = new System.Windows.Forms.Padding(4);
             this.buttonEx5EStop.Name = "buttonEx5EStop";
             this.buttonEx5EStop.Size = new System.Drawing.Size(156, 28);
             this.buttonEx5EStop.TabIndex = 22;
@@ -631,7 +654,7 @@ namespace Exercise2
             // buttonEx5StartStepRun
             // 
             this.buttonEx5StartStepRun.Location = new System.Drawing.Point(11, 124);
-            this.buttonEx5StartStepRun.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonEx5StartStepRun.Margin = new System.Windows.Forms.Padding(4);
             this.buttonEx5StartStepRun.Name = "buttonEx5StartStepRun";
             this.buttonEx5StartStepRun.Size = new System.Drawing.Size(156, 28);
             this.buttonEx5StartStepRun.TabIndex = 21;
@@ -642,7 +665,7 @@ namespace Exercise2
             // textBoxEx5FileName
             // 
             this.textBoxEx5FileName.Location = new System.Drawing.Point(11, 92);
-            this.textBoxEx5FileName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEx5FileName.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEx5FileName.Name = "textBoxEx5FileName";
             this.textBoxEx5FileName.Size = new System.Drawing.Size(444, 22);
             this.textBoxEx5FileName.TabIndex = 20;
@@ -651,9 +674,9 @@ namespace Exercise2
             // 
             this.checkBoxEx5SaveToFile.AutoSize = true;
             this.checkBoxEx5SaveToFile.Location = new System.Drawing.Point(11, 66);
-            this.checkBoxEx5SaveToFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxEx5SaveToFile.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxEx5SaveToFile.Name = "checkBoxEx5SaveToFile";
-            this.checkBoxEx5SaveToFile.Size = new System.Drawing.Size(109, 21);
+            this.checkBoxEx5SaveToFile.Size = new System.Drawing.Size(106, 20);
             this.checkBoxEx5SaveToFile.TabIndex = 19;
             this.checkBoxEx5SaveToFile.Text = "Save To File";
             this.checkBoxEx5SaveToFile.UseVisualStyleBackColor = true;
@@ -665,7 +688,7 @@ namespace Exercise2
             this.label20.Location = new System.Drawing.Point(275, 42);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(30, 17);
+            this.label20.Size = new System.Drawing.Size(29, 16);
             this.label20.TabIndex = 5;
             this.label20.Text = "mm";
             // 
@@ -675,14 +698,14 @@ namespace Exercise2
             this.label19.Location = new System.Drawing.Point(7, 42);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(155, 17);
+            this.label19.Size = new System.Drawing.Size(141, 16);
             this.label19.TabIndex = 4;
             this.label19.Text = "Run Length (Relative) :";
             // 
             // textBoxEx5RunLength
             // 
             this.textBoxEx5RunLength.Location = new System.Drawing.Point(171, 38);
-            this.textBoxEx5RunLength.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEx5RunLength.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEx5RunLength.Name = "textBoxEx5RunLength";
             this.textBoxEx5RunLength.Size = new System.Drawing.Size(95, 22);
             this.textBoxEx5RunLength.TabIndex = 3;
@@ -693,14 +716,14 @@ namespace Exercise2
             this.label18.Location = new System.Drawing.Point(275, 11);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(235, 17);
+            this.label18.Size = new System.Drawing.Size(216, 16);
             this.label18.TabIndex = 2;
             this.label18.Text = "%, Positive (Gantry to Motor) ONLY!";
             // 
             // textBoxEx5DCPWM
             // 
             this.textBoxEx5DCPWM.Location = new System.Drawing.Point(171, 6);
-            this.textBoxEx5DCPWM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEx5DCPWM.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEx5DCPWM.Name = "textBoxEx5DCPWM";
             this.textBoxEx5DCPWM.Size = new System.Drawing.Size(95, 22);
             this.textBoxEx5DCPWM.TabIndex = 1;
@@ -711,7 +734,7 @@ namespace Exercise2
             this.label17.Location = new System.Drawing.Point(7, 10);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(113, 17);
+            this.label17.Size = new System.Drawing.Size(105, 16);
             this.label17.TabIndex = 0;
             this.label17.Text = "Step Input PWM:";
             // 
@@ -727,9 +750,9 @@ namespace Exercise2
             this.tabPage2.Controls.Add(this.label22);
             this.tabPage2.Controls.Add(this.label21);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(973, 495);
             this.tabPage2.TabIndex = 4;
             this.tabPage2.Text = "Ex. 6: 2 Axis Control";
@@ -738,7 +761,7 @@ namespace Exercise2
             // progressBar2
             // 
             this.progressBar2.Location = new System.Drawing.Point(123, 55);
-            this.progressBar2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressBar2.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar2.Name = "progressBar2";
             this.progressBar2.Size = new System.Drawing.Size(99, 28);
             this.progressBar2.TabIndex = 29;
@@ -746,7 +769,7 @@ namespace Exercise2
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(12, 55);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(99, 28);
             this.progressBar1.TabIndex = 28;
@@ -754,7 +777,7 @@ namespace Exercise2
             // buttonEx6Move
             // 
             this.buttonEx6Move.Location = new System.Drawing.Point(359, 21);
-            this.buttonEx6Move.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonEx6Move.Margin = new System.Windows.Forms.Padding(4);
             this.buttonEx6Move.Name = "buttonEx6Move";
             this.buttonEx6Move.Size = new System.Drawing.Size(100, 28);
             this.buttonEx6Move.TabIndex = 27;
@@ -764,7 +787,7 @@ namespace Exercise2
             // textBoxEx6Velocity
             // 
             this.textBoxEx6Velocity.Location = new System.Drawing.Point(233, 23);
-            this.textBoxEx6Velocity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEx6Velocity.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEx6Velocity.Name = "textBoxEx6Velocity";
             this.textBoxEx6Velocity.Size = new System.Drawing.Size(116, 22);
             this.textBoxEx6Velocity.TabIndex = 11;
@@ -772,7 +795,7 @@ namespace Exercise2
             // textBoxEx6YPosition
             // 
             this.textBoxEx6YPosition.Location = new System.Drawing.Point(123, 23);
-            this.textBoxEx6YPosition.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEx6YPosition.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEx6YPosition.Name = "textBoxEx6YPosition";
             this.textBoxEx6YPosition.Size = new System.Drawing.Size(97, 22);
             this.textBoxEx6YPosition.TabIndex = 10;
@@ -780,7 +803,7 @@ namespace Exercise2
             // textBoxEx6XPosition
             // 
             this.textBoxEx6XPosition.Location = new System.Drawing.Point(12, 23);
-            this.textBoxEx6XPosition.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEx6XPosition.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEx6XPosition.Name = "textBoxEx6XPosition";
             this.textBoxEx6XPosition.Size = new System.Drawing.Size(97, 22);
             this.textBoxEx6XPosition.TabIndex = 9;
@@ -791,7 +814,7 @@ namespace Exercise2
             this.label23.Location = new System.Drawing.Point(229, 4);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(120, 17);
+            this.label23.Size = new System.Drawing.Size(114, 16);
             this.label23.TabIndex = 2;
             this.label23.Text = "Velocity (PWM %)";
             // 
@@ -801,7 +824,7 @@ namespace Exercise2
             this.label22.Location = new System.Drawing.Point(119, 4);
             this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(103, 17);
+            this.label22.Size = new System.Drawing.Size(96, 16);
             this.label22.TabIndex = 1;
             this.label22.Text = "Y Position (cm)";
             // 
@@ -811,14 +834,14 @@ namespace Exercise2
             this.label21.Location = new System.Drawing.Point(8, 4);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(103, 17);
+            this.label21.Size = new System.Drawing.Size(95, 16);
             this.label21.TabIndex = 0;
             this.label21.Text = "X Position (cm)";
             // 
             // buttonSerial
             // 
             this.buttonSerial.Location = new System.Drawing.Point(20, 15);
-            this.buttonSerial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSerial.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSerial.Name = "buttonSerial";
             this.buttonSerial.Size = new System.Drawing.Size(217, 28);
             this.buttonSerial.TabIndex = 2;
@@ -830,7 +853,7 @@ namespace Exercise2
             // 
             this.comboBoxCOMPorts.FormattingEnabled = true;
             this.comboBoxCOMPorts.Location = new System.Drawing.Point(16, 50);
-            this.comboBoxCOMPorts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxCOMPorts.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxCOMPorts.Name = "comboBoxCOMPorts";
             this.comboBoxCOMPorts.Size = new System.Drawing.Size(220, 24);
             this.comboBoxCOMPorts.TabIndex = 1;
@@ -849,7 +872,7 @@ namespace Exercise2
             // textBoxSerialDataStream
             // 
             this.textBoxSerialDataStream.Location = new System.Drawing.Point(16, 174);
-            this.textBoxSerialDataStream.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxSerialDataStream.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxSerialDataStream.Multiline = true;
             this.textBoxSerialDataStream.Name = "textBoxSerialDataStream";
             this.textBoxSerialDataStream.ReadOnly = true;
@@ -862,30 +885,17 @@ namespace Exercise2
             this.label12.Location = new System.Drawing.Point(16, 154);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(90, 17);
+            this.label12.Size = new System.Drawing.Size(83, 16);
             this.label12.TabIndex = 3;
             this.label12.Text = "Return Bytes";
             // 
-            // txtDebugOutput1
+            // textBoxDebug
             // 
-            this.txtDebugOutput1.Location = new System.Drawing.Point(709, 236);
-            this.txtDebugOutput1.Name = "txtDebugOutput1";
-            this.txtDebugOutput1.Size = new System.Drawing.Size(100, 22);
-            this.txtDebugOutput1.TabIndex = 28;
-            // 
-            // txtDebugOutput2
-            // 
-            this.txtDebugOutput2.Location = new System.Drawing.Point(709, 265);
-            this.txtDebugOutput2.Name = "txtDebugOutput2";
-            this.txtDebugOutput2.Size = new System.Drawing.Size(100, 22);
-            this.txtDebugOutput2.TabIndex = 29;
-            // 
-            // txtDebugOutput3
-            // 
-            this.txtDebugOutput3.Location = new System.Drawing.Point(709, 294);
-            this.txtDebugOutput3.Name = "txtDebugOutput3";
-            this.txtDebugOutput3.Size = new System.Drawing.Size(100, 22);
-            this.txtDebugOutput3.TabIndex = 30;
+            this.textBoxDebug.Location = new System.Drawing.Point(813, 33);
+            this.textBoxDebug.Name = "textBoxDebug";
+            this.textBoxDebug.Size = new System.Drawing.Size(94, 22);
+            this.textBoxDebug.TabIndex = 7;
+            this.textBoxDebug.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Form1
             // 
@@ -897,7 +907,7 @@ namespace Exercise2
             this.Controls.Add(this.comboBoxCOMPorts);
             this.Controls.Add(this.textBoxSerialDataStream);
             this.Controls.Add(this.tabControl);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "MECH423Lab3";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -992,6 +1002,7 @@ namespace Exercise2
         private System.Windows.Forms.TextBox txtDebugOutput3;
         private System.Windows.Forms.TextBox txtDebugOutput2;
         private System.Windows.Forms.TextBox txtDebugOutput1;
+        private System.Windows.Forms.TextBox textBoxDebug;
     }
 }
 
